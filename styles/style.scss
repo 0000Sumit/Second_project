@@ -1,0 +1,171 @@
+@import '/components/components';
+
+body{
+    h1{
+        text-align: center;
+    }
+    .main-headline{
+        h2{
+            text-align: center;
+            font-size: 32px;
+            line-height: 36px;
+            font-weight: 700;
+            margin: 0;
+            position: relative;
+            &::after{
+                position: absolute;
+                content: " ";
+                bottom: -10px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 5%;
+                height: 4px;
+                background: #f55306;
+                border-radius: 6px;
+            }
+        }
+    }
+}
+
+.aboutmain{
+    .pic{
+        object-fit: cover;
+    }
+}
+
+.errorpage{
+    max-width: 600px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 100px 0;
+    position: relative;
+    .backlayer{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        h2{
+            font-size: 142px;
+            line-height: 160px;
+            font-weight: 800;
+            letter-spacing: 5px;
+            color: #dbdbdb;
+            text-shadow: 0 1px 5px #00000026;
+        }
+    }
+    .errorinfo{
+        position: relative;
+        z-index: 1;
+        h4{
+            font-size: 32px;
+            line-height: 40px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+        p{
+           font-size: 14px;
+           margin-bottom: 50px;
+        }
+        .btn{
+            color: #fff;
+            background: #f31d58;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+    }
+}
+
+.banner-area{
+    position: relative;
+    .info{
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -50%);
+        width:100%;
+        text-align: center;
+        z-index: 2;
+        h2{
+           text-align: center;
+           font-size: 32px;
+           font-weight: 700;
+           margin: 0 0 15px;
+        }
+        ul{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            list-style: none;
+            padding:0;
+            margin: 0;
+            li{
+                font-size: 16px;
+                font-weight: 500;
+                color:#f31d58;
+                a{
+                  color:#000;
+                  font-size: 16px;
+                  font-weight: 500;
+                }
+                span{
+                 color:#000;
+                 padding: 0 5px;
+                }
+            }
+        }
+    }
+}
+
+// -----------home page slider sec --------
+.homearea{
+    .main-slider{
+        .item{
+            position: relative;
+            .pic{
+                object-fit: cover;
+            }
+            .sliderinfo{
+                position: absolute;
+                top:50%;
+                left:50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+                width: 60%;
+                h3{
+                    font-size: 34px;
+                    line-height: 40px;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    color: #fff;
+                    text-shadow: 0 1px 5px #000;
+                    margin-bottom: 15px;
+                }
+                p{
+                  font-size: 15px;
+                  line-height: 22px;
+                  color:#fff;
+                  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.466);
+                }
+            }
+        }
+    }
+    .ourinfo{
+        padding: 50px 100px;
+        .info{
+            h4{
+                font-size: 28px;
+                line-height: 34px;
+                margin-bottom: 10px;
+                font-weight: 700;
+            }
+            p{font-size: 14px;
+              line-height: 20px;
+              margin-bottom: 15px;
+            }
+        }
+    }
+}

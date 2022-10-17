@@ -1,0 +1,31 @@
+.navbar-area{
+    padding: 25px 50px;
+    background: rgb(255 255 255 / 66%);
+    position: absolute;
+    top: 0;
+    z-index: 9;
+    width: 100%;
+
+    ul{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        li{
+            padding: 0 25px;
+            a{
+               color:#000;
+               font-size: 14px;
+               font-weight: 500;
+               letter-spacing: 1px;
+               text-transform: uppercase;
+               transition: 0.5s ease;
+               &:hover{
+                color:rgb(245 83 6)
+               }
+            }
+        }
+    }
+}
