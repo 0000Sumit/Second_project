@@ -25,7 +25,7 @@ const Service = ({data}) => {
 
 
       {data.map((item)=> (
-        <Link href={`/service/${item.id}`} key={item.id}>
+        <Link href={`./service/${item.id}`} key={item.id}>
           <a>
             <div className="card">
               <h2>{item.title}</h2>

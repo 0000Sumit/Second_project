@@ -11,7 +11,7 @@ const Error = () => {
 
   useEffect(() =>{
     setTimeout(() =>{
-      router.push("/");   //automatic redirect home page
+      router.push("/home");   //automatic redirect home page
     }, 5000);
   }, []);
 
