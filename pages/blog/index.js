@@ -1,4 +1,4 @@
-import { Layout } from 'antd'
+import { Col, Layout, Row } from 'antd'
 import Link from 'next/link'
 import Banner from '../../components/Banner/banner'
 import Footer from '../../components/footer'
@@ -24,23 +24,16 @@ const Blog = ({data}) => {
             </ul>
           </div>
         </div>
-
-
-
-
-
-         {data.map((item) => (
-            <div href={`./blog/${item.id}`} key={item.id}>
+        <Row>
+          {data.map((item) => (
+            <Col className="gutter-row" xs={24} lg={8} md={12}
+             href={`./blog/${item.id}`} key={item.id}>
                <h4>{item.id}</h4>
                 <p>{item.title}</p>
-            </div>
+            </Col>
          )
          )}
-
-
-
-
-        
+        </Row>
         <Footer/>
         </Layout>
     </div>
@@ -50,7 +43,7 @@ const Blog = ({data}) => {
 export default Blog;
 
 export async function getServerSideProps(){
-    const res = await fetch('https://jsonplaceholder.typicode.com/todos');
+    const res = await fetch(`${process.env.BASE_URL_TWO}todos`);
     const data = await res.json();
     return {props: {data}};
 }
