@@ -5,10 +5,16 @@ import Sliderpic2 from "../../images/pic2.jpg";
 import Sliderpic3 from "../../images/pic3.jpg";
 import Sliderpic4 from "../../images/pic4.jpg";
 import Image from 'next/image';
+import Item from "antd/lib/list/Item";
 const { Meta } = Card;
 
+export async function getServerSideProps(){
+  const res = await fetch (`${process.env.BASE_URL}posts`);
+  const data = await res.json();
+  return {props: { data }};
+}
 
-const Home = () => {
+const Home = ({data}) => {
     return(
         <div className="homearea">
         <Headpart pagetitle="Home Page" />
@@ -87,34 +93,12 @@ const Home = () => {
 <div className="ourinfo">
 <Row>
       <Col span={12}>
-        <div className="info">
-          <h4>Plan and join with us</h4>
-          <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-           Lorem Ipsum has been the  standard dummy text ever since the 1500s,
-            when an unknown printer took a galley of type and scrambled it to make
-             a type specimen book. It has survived not only five centuries,
-              but also the leap into electronic typesetting, remaining essentially unchanged.
-          </p>
-
-          <p>
-          It is a long established fact that a reader will be distracted by the
-           readable content of a page when looking at its layout. The point of
-            using Lorem Ipsum is that it has a more-or-less normal distribution of
-             letters, as opposed to using  content making it look like readable English.
-          </p>
-
-          <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-           Lorem Ipsum has been the  standard dummy text ever since the 1500s,
-            when an unknown printer took a galley of type and scrambled it to make
-             a type specimen book. It has survived not only five centuries,
-              but also the leap into electronic typesetting, remaining essentially unchanged.
-              It is a long established fact that a reader will be distracted by the
-           readable content.
-          </p>
-          
-        </div>
+        {data.slice(0,3).map((item)=>(
+          <div className="info" key={item.id}>
+          <h4>{item.title}</h4>
+           <p>{item.body}</p>
+          </div>
+        ))}
       </Col>
       <Col span={12}>
         <div className="picarea">
@@ -132,50 +116,19 @@ const Home = () => {
   </div>
 <div className="cardbox" style={{padding:50}}>
   <Row gutter={8}>
-      <Col span={6}>
-      <Card className="card-item"
-    hoverable
-    style={{
       
-    }}
-    cover={<Image alt="example" src={Sliderpic4}  loading="lazy" />}
-  >
-    <Meta title="Europe Street beat" description="www.instagram.com" />
-  </Card>
-      </Col>
+      {data.map((item)=>(
+        <Col span={6} key={item.id}>
+        <Card className="card-item"
+         cover={<Image alt="example" src={Sliderpic4}  loading="lazy" />}>
+        <Meta title={item.title}/>
+        </Card>
+        </Col>
+      )
 
-      <Col span={6}>
-      <Card
-    hoverable
-    style={{
-    }}
-    cover={<Image alt="example" src={Sliderpic2} loading="lazy" />}
-  >
-    <Meta title="Europe Street beat" description="www.instagram.com" />
-  </Card>
-      </Col>
-
-      <Col span={6}>
-      <Card
-    hoverable
-    style={{
-    }}
-    cover={<Image alt="example" src={Sliderpic3} loading="lazy" />}
-  >
-    <Meta title="Europe Street beat" description="www.instagram.com" />
-  </Card>
-      </Col>
-
-      <Col span={6}>
-      <Card
-    hoverable
-    style={{
-    }}
-    cover={<Image alt="example" src={Sliderpic4} loading="lazy" />}
-  >
-    <Meta title="Europe Street beat" description="www.instagram.com" />
-  </Card>
-      </Col>
+      )}
+     
+      
   </Row>
   </div>
 </div>
